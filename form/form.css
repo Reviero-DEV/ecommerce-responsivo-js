@@ -26,7 +26,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    /* overflow: hidden; */
     width: 80%;
     max-width: 900px;
     height: 400px;
@@ -36,41 +35,23 @@ body {
     overflow: hidden;
 }
 
-/* FAZER O FORMULARIO FICAR COM O BACKGROUND COM VISUAL EMBAÇADO*/
-
 
 .form-signin,
 .form-signup {
     display: flex;
     justify-items: center;
-    /* flex-wrap: wrap; */
     width: 100%;
     position: absolute;
-    /* overflow: hidden; */
     padding: 0;
     margin-bottom: 0;
     inset: 0;
     justify-content: center;
-    /* align-items: center; */
     transition:
         transform 0.7s ease,
         opacity 1.5s ease;
 
 }
 
-/* .form-signup {
-    display: none;
-}
-
-.formulario.form-toggle .form-signin {
-    display: none;
-}
-
-.formulario.form-toggle .form-signup {
-    display: flex;
-} */
-
-/* AJUSTES DE ANIMACAO */
 /* ESTADO INICIAL */
 .form-signin {
   transform: translateX(0);
@@ -98,18 +79,11 @@ body {
 .form-register {
     display: flex;
     flex-direction: column;
-    /* justify-content: start; */
     align-items: center;
     padding: 5px;
-    /* margin-top: 20px; */
-    /* margin-bottom: 0; */
     width: 50%;
-    /* height: auto; */
-    /* box-sizing: border-box; */
-    /* gap: 5px; */
 }
 
-/* ALTERAR APARENCIA DOS INPUTS */
 .form-login input,
 .form-register input {
     width: 80%;
@@ -124,7 +98,6 @@ body {
 }
 
 input::placeholder {
-    /* color: #07070791; */
     font-weight: bolder;
 }
 
@@ -154,11 +127,7 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    /* padding: 40px; */
     width: 50%;
-    /* height: auto; */
-    /* box-sizing: border-box; */
     text-align: center;
     border-radius: 10px;
 
@@ -167,16 +136,8 @@ input::placeholder {
 .form-footer {
     border-top: 1px solid #eee;
     text-align: center;
-    /* position: relative; */
-    /* padding: 20px; */
     font-size: 14px;
     color: #635f5f;
-    /* margin-right: 10px; */
-    /* width: 100%; */
-    /* margin-bottom: 0; */
-    /* margin-top: 1rem; */
-    /* padding: 0; */
-    /* height: fit-content; */
     font-size: medium;
 
 }
@@ -189,7 +150,6 @@ a {
 a:hover {
     text-decoration: underline;
     cursor: pointer;
-    /* font-weight: bolder; */
     color: #42c2b6;
 }
 
