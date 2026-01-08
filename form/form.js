@@ -1,8 +1,6 @@
-// DOM
 const formContainer = document.querySelector('.formulario');
 const btnToggle = document.querySelectorAll('.toggle-form');
-// const formSignin = document.querySelector('.form-signin');
-// const formSignup = document.querySelector('.form-signup');
+
 
 // MUDANÇA DE FORMULARIO
 function toggleForm() {
