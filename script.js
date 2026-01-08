@@ -1,11 +1,11 @@
-//  TERA EFEITO DO PRODUTO INDO PRO CARRINHO E ATUALIZANDO O NUMERO DE PRODUTOS NO CARRINHO
-
-//DOM
 const productsContainer = document.getElementById('cards');
 const navBestSellers = document.querySelector('.best-sellers');
 const exploreBtn = document.getElementById('moreProducts');
 const navCategories = document.querySelector('.category-nav');
 const cartCount = document.getElementById('cart-count');
+const inputSearch = document.getElementById('input-search');
+const btnSearch = document.getElementById('btn-search');
+
 
 // DOM DO CART
 const listCart = document.querySelector(".cart-list");
@@ -14,21 +14,11 @@ const checkoutButton = document.querySelector(".checkout-button");
 const cartResume = document.querySelectorAll(".cart-resume");
 const listRecomend = document.querySelector(".product-recomended");
 
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
   loadCart();
-  // Apenas chame a função que lê o localStorage para a contagem
-atualizarUI();
-  atualizarCartUI();
-
-  // Se você tiver outras inicializações de UI, coloque-as aqui
-  
-  // addToCart();
-
+  atualizarUI();
 });
 
-// ARRAY DE PRODUTOS
 const products = [
   {
     id: 1,
@@ -214,19 +204,15 @@ const products = [
 ];
 
 function atualizarUI() {
-  if(!renderProducts) {
+  if (!renderProducts) {
     console.log('render nao encontrado');
   };
-  console.log('atualizar ui disparado');
-  // renderProducts(products);
-  console.log('renderProducts chamado');
+  // console.log('atualizar ui disparado');
+  renderProducts(products);
+  // console.log('renderProducts chamado');
   filterProducts();
-  console.log('filterProducts chamado');
-  // prodRecomends(products);
-  console.log('proRecomends chamado');
-
-  atualizarCartUI(cart);
-  // ATUALIZAR CARRINHO
+  // console.log('filterProducts chamado');
+  atualizarCartUI();
 }
 
 // FUNCOES DO CART
@@ -234,7 +220,6 @@ let cart = [];
 
 const CART_KEY = 'movimentacaoDoCarrinho';
 
-// ADICIONAR LOCALSTORAGE
 function saveCart() {
   const cartJSON = JSON.stringify(cart);
   localStorage.setItem(CART_KEY, cartJSON)
@@ -249,54 +234,33 @@ function loadCart() {
     console.log("NENHUM ITEM ADICIONADO AO CARRINHO");
   }
   atualizarCartUI();
-  cartPanel(cart);
+  cartPanel();
+  prodRecomends(products);
 
 }
 
-// ADICIONAR PRODUTOS AO CARRINHO
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   cart.push(product);
-
-  
-  atualizarCartUI();
-  // cartPanel(cart);
+  cartPanel(cart);
   saveCart();
 
 }
 
-// AJUSTAR CARRINHO
-// Prioridade absoluta (ordem certa)
-// Eliminar NaN da UI (nem que seja placeholder)
-// Corrigir lógica de preço por item
-// Unificar itens duplicados
-// Ajustar quantidade inicial
-// Sincronizar total com itens
-// Adicionar feedback visual mínimo
-
-// O CART ESVAZIA A VOLTAR DA PAGINA DO CART PARA A PRINCIPAL
-// OS PRODUTOS RECOMENDADOS ESTA ATUALIZANDO CADA VEZ QUE CLICA PARA ADICIONAR PRODUTO AO CARRINHO
-
-
-// ATUALIZAR CARRINHO NA UI
 function atualizarCartUI() {
-  // console.log("Chamando atualizarCartUI. Elemento encontrado?", cartCount); // DEBUG
 
   if (!cartCount) {
     console.log("Erro: Elemento cartCount não foi encontrado!");
-    return; // Interrompe a função se o elemento não existe
+    return;
   }
- 
 
   cartCount.textContent = cart.length;
   cartCount.style.display = cart.length >= 1 ? 'block' : 'none';
-   saveCart();
+  saveCart();
 }
-// RENDERIZAR PRODUTOS DO CART
-// RENDERIZAR PRODUTOS DO CART
+
 function cartPanel() {
   const messageCart = document.getElementById("cart-message");
-  // messageCart.textContent = "";
   messageCart.innerHTML = `Seu carrinho esta vazio 
   <button><a href="/index.html/cards">Explorar produtos</a></button>`;
   listCart.innerHTML = "";
@@ -305,7 +269,7 @@ function cartPanel() {
     listCart.style.display = 'block';
     messageCart.style.display = 'none';
 
-    // Agrupar produtos por ID e contar quantidade
+    // AGRUPAR PRODUTOS POR ID E QTY
     const productCountMap = {};
     cart.forEach(product => {
       if (productCountMap[product.id]) {
@@ -318,12 +282,10 @@ function cartPanel() {
       }
     });
 
-    // Renderizar apenas um item por ID com a quantidade correta
     Object.values(productCountMap).forEach(({ product, quantity }) => {
       const cartProduct = document.createElement('li');
       cartProduct.classList.add("cart-item");
 
-      // Cálculo do subtotal: preço * quantidade
       const subtotal = (product.value * quantity).toFixed(2);
 
       cartProduct.innerHTML = `
@@ -359,12 +321,11 @@ function cartPanel() {
     cartResume.forEach(el => el.style.display = 'none');
     messageCart.style.display = 'flex';
   }
-  
+
   saveCart();
-  prodRecomends(products);
+
 }
 
-// CALCULAR TOTAL DO CARRINHO
 function updateCartTotal() {
   const total = cart.reduce((sum, product) => sum + product.value, 0).toFixed(2);
   if (priceTotal) {
@@ -372,7 +333,6 @@ function updateCartTotal() {
   }
 }
 
-// INCREMENTAR QUANTIDADE
 function incrementQuantity(productId) {
   const product = products.find(p => p.id === productId);
   cart.push(product);
@@ -384,12 +344,11 @@ function decrementQuantity(productId) {
   const index = cart.findIndex(p => p.id === productId);
   if (index > -1) {
     cart.splice(index, 1);
-  }
+  };
   saveCart();
   cartPanel();
 }
 
-// ATUALIZAR QUANTIDADE DO INPUT
 function updateFromInput(productId, newQuantity) {
   const quantity = parseInt(newQuantity);
   const currentQty = cart.filter(p => p.id === productId).length;
@@ -406,7 +365,6 @@ function updateFromInput(productId, newQuantity) {
   }
 }
 
-// REMOVER PRODUTO DO CARRINHO
 function removeFromCart(productId) {
   cart = cart.filter(p => p.id !== productId);
   saveCart();
@@ -414,27 +372,19 @@ function removeFromCart(productId) {
   cartPanel();
 }
 
-// PRODUTOS RECOMENDADOS NA ABA DO CART
 function prodRecomends(products) {
- 
+  console.log("listRecomend encontrado?", listRecomend);
 
-  // aleatoriamente, fazendo com que o sort() embaralhe os itens.
-  // const productAleatory = products.sort(() => 0.5 - Math.random());
-  // 2. Extrair os 9 primeiros itens
-  // const listAleat9 = productAleatory.slice(0, 9);
-console.log("listRecomend encontrado?", listRecomend); // DEBUG
-  
   if (!listRecomend) {
     console.error("Elemento .recomends não encontrado no HTML!");
     return;
   }
-  // APENAS PEGAR PRODUTOS ALEATORIOS DO PRODUTOS E ADICONAR NA LISTA DE EXIBICAO
-  // APARECENDO APENOS UM PRODUTO POR ID, COM LIMITE DE 9 PRODUTOS
+
   listRecomend.innerHTML = '';
   const renderRecomends = products.sort(() => 0.5 - Math.random()).slice(0, 9);
 
   renderRecomends.forEach(product => {
-    
+
     const recomendCard = document.createElement('div');
     recomendCard.classList.add('card');
     recomendCard.innerHTML = `
@@ -455,10 +405,10 @@ console.log("listRecomend encontrado?", listRecomend); // DEBUG
   saveCart();
 }
 
-// FILTRAR PRODUTOS
-function renderProducts(products) {
+
+function renderProducts(list = products) {
   productsContainer.innerHTML = '';
-  products.forEach(product => {
+  list.forEach(product => {
     const productCard = document.createElement('div');
     productCard.classList.add('card');
     productCard.innerHTML = `
@@ -473,7 +423,6 @@ function renderProducts(products) {
     btn.addEventListener('click', () => addToCart(product));
     productCard.appendChild(btn);
     productsContainer.appendChild(productCard);
-    // ATUALIZAR CARRINHO
     saveCart();
 
 
@@ -501,7 +450,7 @@ function filterProducts(highlight, category) {
   });
 
 }
-// FILTRAR POR CATEGORIAS
+
 navCategories.addEventListener('click', (e) => {
   const categ = e.target.getAttribute("value");
   const filtered = products.filter(p => p.category === categ)
@@ -510,10 +459,43 @@ navCategories.addEventListener('click', (e) => {
   renderProducts(filtered);
 });
 
-// BOTAO EXIBIR TODOS PRODUTOS
 exploreBtn.addEventListener("click", () => {
   renderProducts(products);
 })
+
+inputSearch.addEventListener('input', (e) => {
+  const searchTerm = e.target.value.toLowerCase().trim();
+  if (!searchTerm) {
+    renderProducts(products);
+    return;
+  };
+
+
+  const filtered = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm)
+  );
+  renderProducts(filtered);
+
+});
+// ABRIR OU FECHAR INPUT
+btnSearch.addEventListener('click', (e) => {
+  e.stopPropagation();
+  inputSearch.classList.toggle('hidden');
+
+  inputSearch.value = '';
+});
+// FECHAR INPUT AO CLICAR FORA
+document.addEventListener('click', (e) => {
+  if (
+    !inputSearch.classList.contains('hidden') &&
+    e.target !== inputSearch &&
+    e.target !== btnSearch
+  ) {
+    inputSearch.classList.add('hidden');
+    inputSearch.value = '';
+
+  }
+});
 
 
 
