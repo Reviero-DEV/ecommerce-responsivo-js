@@ -8,7 +8,6 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    /* overflow: hidden; */
     align-items: center;
     width: 800px;
     max-width: 90%;
@@ -17,25 +16,16 @@
     gap: 15px;
 }
 
-main {
-    /* height: 100vh; */
-}
-
-/* DEIXAR OS CONTEUDOS DO CONTAINER LADO AO LADO */
 .cart-list {
     display: flex;
     justify-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     width: 90%;
-    /* position: relative; */
-    /* overflow: hidden; */
     padding: 0;
     margin-bottom: 0;
-    /* height: 100%; */
 }
 
-/* AJUSTAR ITEM PARA SE ADEQUAR A IMAGEM E INFORMACOES DO PRODUTO */
 .cart-item {
     display: flex;
     background: rgba(210, 224, 238, 0.486);
@@ -58,7 +48,6 @@ main {
 }
 
 .cart-list input {
-    /* configurar responsividade */
     width: 30%;
     background: none;
     font-weight: bolder;
@@ -83,13 +72,9 @@ main {
 
 .quantity-control {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-    /* font-size: 30px; */
-    /* margin: 0; */
 }
 
-/* ajustar tamanho dos botoes */
 .quantity-control button {
     background: none;
     color: #0664b5;
@@ -100,7 +85,6 @@ main {
     margin: 0;
 }
 
-/* ajustar container */
 .cart-resume {
     text-align: center;
 }
@@ -119,12 +103,10 @@ main {
 
 .details-buy {
     display: grid;
-    /* position: relative; */
     margin: 0;
     width: 50%;
     padding: 30px;
     height: min-content;
-    /* justify-items: center; */
     justify-content: center;
 }
 
@@ -132,23 +114,14 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     padding: 10px;
-    /* margin-top: 20px 0; */
-    /* margin-bottom: 0; */
-    /* width: 50%; */
-    /* height: 100%; */
-    /* box-sizing: border-box; */
     gap: 5px;
-    /* flex: 3; */
-    /* overflow: hidden; */
     flex: 1 1 calc(33% - 40px);
 }
 
 /* DEIXAR OS PRODUTOS RECOMENDADOS EM LINHA EM MODO DE ROLAGEM */
 .recomends {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -157,10 +130,7 @@ form {
     margin-bottom: 30px;
     width: 100%;
     height: auto;
-    /* overflow-y: hidden; */
-    /* overflow-x: hidden; */
     gap: 10px;
-    /* max-height: 200px; */
 
 }
 
@@ -176,9 +146,7 @@ form {
     display: flex;
     flex-direction: column;
     background: var(--cards-e-texto);
-    /* border: 1px solid var(--cor-bordas-card); */
     border-radius: 5px;
-    /* box-shadow: var(--cor-texto-principal); */
     margin: 30px 15px;
     padding: 10px;
     text-align: center;
@@ -186,15 +154,11 @@ form {
     font-size: smaller;
     max-height: 350px;
     flex: 1 1 calc(33% - 40px);
-    /* overflow: hidden; */
 }
 
 
-/* fazer com o footer fique no final da página independente do conteúdo */
 footer {
     position: relative;
-    /* top: 100%; */
-    /* bottom: 0; */
     height: auto;
 
 }
