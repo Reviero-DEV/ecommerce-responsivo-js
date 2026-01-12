@@ -52,27 +52,29 @@ body {
 
 }
 
-/* ESTADO INICIAL */
 .form-signin {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
 }
+
 .form-signup {
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
 }
-/* ESTADO ALTERNADO (classe no pai) */
+
+
 .formulario.form-toggle .form-signin {
-  transform: translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
+
 .formulario.form-toggle .form-signup {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
 }
 
 .form-login,
@@ -84,6 +86,11 @@ body {
     width: 50%;
 }
 
+.form-register p,
+.form-register h2 {
+    margin-bottom: 0;
+}
+
 .form-login input,
 .form-register input {
     width: 80%;
@@ -93,13 +100,20 @@ body {
     border-bottom: 3px solid rgba(26, 214, 205, 0.514);
     border-radius: 10px;
     font-size: 16px;
-    background:rgb(207, 204, 204);
-    
+    background: rgb(207, 204, 204);
+
 }
 
 input::placeholder {
     font-weight: bolder;
 }
+
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
+}
+
+
 
 .form-login button,
 .form-register button {
@@ -139,7 +153,7 @@ input::placeholder {
     font-size: 14px;
     color: #635f5f;
     font-size: medium;
-
+    margin-top: 10px;
 }
 
 a {
