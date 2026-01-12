@@ -15,8 +15,10 @@
             <form action="login" class="form-login">
                 <h2>Iniciar sessão</h2>
                 <p>Insira seu ID de usuário e senha</p>
-                <input type="text" placeholder="Usuário" required>
-                <input type="password" placeholder="Senha" required>
+                <input type="text" id="login-user" placeholder="Usuário" required>
+                <small id="loginUser-error" class="error-message"></small>
+                <input type="password" id="login-pass" placeholder="Senha" required>
+                <small id="loginPass-error" class="error-message"></small>
         <button type="submit">Entrar</button>
           <div class="form-footer">
         <p>Não tem uma conta? <a class="toggle-form">Cadastre-se</a></p>
@@ -36,9 +38,12 @@
         <form action="register" class="form-register">
              <h2>Criar conta</h2>
     <P>Preencha o formulário para criar uma conta</P>
-        <input type="text" placeholder="Nome de usuário" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Senha" required>
+        <input type="text" id="register-user" placeholder="Nome de usuário" required>
+        <small id="registerUser-error" class="error-message"></small>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <small id="registerEmail-error" class="error-message"></small>
+        <input type="password" id="register-pass" placeholder="Senha" required>
+        <small id="registerPass-error" class="error-message"></small>
         <button type="submit">Registrar</button>
         <div class="form-footer">
         <p>Já tem uma conta? <a class="toggle-form">Iniciar sessão</a></p>
