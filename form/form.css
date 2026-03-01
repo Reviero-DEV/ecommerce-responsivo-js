@@ -1,7 +1,7 @@
 :root {
-    --cor-principal: linear-gradient(180deg, #49f8a6, #42c2b6);
+    --cor-principal: linear-gradient(135deg, #001f3f, #011020);
     --cor-texto-principal: #000000;
-    --cor-texto-secundaria: #ffffff;
+    --cor-texto-secundaria: #ebc9a5;
     --cor-bordas-card: linear-gradient(180deg, #69a8d1, #42c2b6);
 }
 
@@ -97,7 +97,7 @@ body {
     padding: 10px;
     margin: 10px 0;
     border: 0;
-    border-bottom: 3px solid rgba(26, 214, 205, 0.514);
+    border-bottom: 3px solid #011020;
     border-radius: 10px;
     font-size: 16px;
     background: rgb(207, 204, 204);
@@ -120,10 +120,10 @@ input::placeholder {
     width: 50%;
     padding: 5px;
     margin: 5px 0;
-    border: none;
+    border: 1px solid #011020;
     border-radius: 10px;
-    background: var(--cor-bordas-card);
-    color: white;
+    background: #ebc9a5;
+    color: var(--cor-principal);
     font-size: 16px;
     cursor: pointer;
     transition: background 0.5s;
@@ -132,12 +132,14 @@ input::placeholder {
 .form-login button:hover,
 .form-register button:hover {
     background: var(--cor-principal);
+    color: #ebc9a5;
+    
 }
 
 #mesage-welcome,
 #message-welcome {
-    background: var(--cor-bordas-card);
-    color: white;
+    background: var(--cor-principal);
+    color: #ebc9a5;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,6 +168,3 @@ a:hover {
     cursor: pointer;
     color: #42c2b6;
 }
-
-
-/* AJUSTAR RESPONSIVIDADE A MENOS DE 490PX */
