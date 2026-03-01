@@ -1,10 +1,10 @@
 :root {
-    --fundo-principal: #001F3F;
+    --fundo-principal: linear-gradient(135deg, #001f3f, #011020);
     --secoes-importantes: #003F88;
     --botoes-interatividade: #00B8D9;
     --nav-fundo: #E1EAF2;
     --texto-principal: #000000;
-    --cards-e-texto: #ffffff;
+    --cards-e-texto: #ebc9a5;
 }
 
 * {
@@ -17,7 +17,7 @@ html,
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: #f4f4f4;
+    background: #F1F5F9;
     color: #333;
     height: 100%;
 }
@@ -27,7 +27,6 @@ header {
     color: var(--cards-e-texto);
     padding: 10px 0;
     width: 100%;
-    top: 0;
     display: flex;
     gap: 20px;
     align-items: center;
@@ -118,16 +117,15 @@ header i:hover {
     padding: 5px 20px;
     text-decoration: none;
     text-align: center;
+    font-weight: bolder;
     margin-bottom: 5px;
 }
 
 .navbar a:hover {
     background: var(--fundo-principal);
     color: var(--cards-e-texto);
-    width: 100%;
     border-radius: 0 0 30px 30px;
     transition: 0.7s;
-    clip-path: path("M0 0 H100% V40 Q50% 90 0 40 Z");
 }
 
 ul {
@@ -173,6 +171,7 @@ main {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    gap: 3px;
     width: 50%;
     padding: 0;
     position: relative;
@@ -182,10 +181,11 @@ main {
 
 .hero-content p {
     font-size: 25px;
+    letter-spacing: 1px;
     margin-bottom: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-right: 20px;
-    color: var(--nav-fundo);
+    color: var(--cards-e-texto);
     font-family: 'Arial Black', sans-serif;
 }
 
@@ -199,9 +199,17 @@ main {
 }
 
 .hero-content button {
-    font-size: 16px;
-    border: 2px solid var(--botoes-interatividade);
-    color: var(--botoes-interatividade);
+    font-size: 1.5rem;
+    border: 2px solid #9b7a10;
+}
+
+#call a {
+    color: #001f3f;
+    font-weight: 700;
+}
+
+#call a:hover {
+    color: bisque;
 }
 
 .hero-img img {
@@ -227,10 +235,9 @@ main {
 }
 
 .category-nav {
-    background: var(--cor-texto-secundaria);
     padding: 10px 0;
     width: 100%;
-    border-bottom: 1px solid var(--botoes-interatividade);
+    border-bottom: 1px solid #001f3f;
 }
 
 .category-nav ul {
@@ -246,13 +253,15 @@ main {
 .category-nav a {
     color: var(--cor-texto-principal);
     text-decoration: none;
+    font-size: 17px;
+    font-weight: bolder;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
 .category-nav a:hover {
-    background: var(--botoes-interatividade);
-    color: var(--nav-fundo);
+    background: var(--texto-principal);
+    color: var(--cards-e-texto);
 }
 
 .servicos {
@@ -263,10 +272,11 @@ main {
 }
 
 .service {
-    background: var(--cards-e-texto);
+    background: #ffffff;
     border-radius: 5px;
     margin: 10px;
     padding: 5px;
+    border: 1px solid bisque;
     text-align: center;
     justify-items: center;
     text-size-adjust: 100%;
@@ -291,7 +301,7 @@ main {
     justify-content: center;
     align-items: center;
     margin: 20px 0 0 0;
-    background: var(--botoes-interatividade);
+    background: #011020;
     padding: 20px;
     border-radius: 10px;
     width: 100%;
@@ -325,7 +335,7 @@ main {
 
 .banner-content {
     margin-right: 50px;
-    color: var(--cor-texto-secundaria);
+    color: var(--cards-e-texto);
     text-align: left;
 }
 
@@ -351,14 +361,22 @@ main {
 .card {
     display: flex;
     flex-direction: column;
-    background: var(--cards-e-texto);
-    border-radius: 5px;
+    background: #ffffff;
+    border-radius: 10px;
     margin: 10px 15px;
+    border: 1px solid #EBC9A5;
     padding: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 50%);
     text-align: center;
     width: 200px;
+    transition: 0.3s ease;
     font-size: smaller;
     overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8);
 }
 
 .card img {
@@ -387,7 +405,7 @@ main {
 }
 
 .card button {
-    background: var(--nav-fundo);
+    background: var(--cards-e-texto);
     color: var(--fundo-principal);
     border: none;
     padding: 10px;
@@ -397,8 +415,6 @@ main {
 }
 
 #moreProducts {
-    background: var(--botoes-interatividade);
-    color: var(--cards-e-texto);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -430,10 +446,12 @@ main {
 }
 
 .review {
-    background: var(--cards-e-texto);
+    background: var(--nav-fundo);
     border-radius: 10px;
     margin: 10px 15px;
     padding: 10px;
+    border: 1px solid #EBC9A5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
     text-align: center;
     font-size: 16px;
     max-width: max-content;
@@ -484,6 +502,7 @@ footer {
 h4 {
     font-size: larger;
     margin-bottom: 0;
+    color: #e1eaf2;
 }
 
 #newsletter {
@@ -504,37 +523,41 @@ h4 {
     border: none;
     border-radius: 5px;
     width: 50%;
+    background: #ab978354;
+}
+
+#newsletter input::placeholder {
+    color: #999;
+    opacity: 1; 
 }
 
 #newsletter button {
     padding: 10px;
     border: 1px solid var(--cor-texto-secundaria);
     border-radius: 5px;
-    background: var(--nav-fundo);
+    background: var(--cards-e-texto);
     color: var(--secoes-importantes);
     cursor: pointer;
     margin-top: 0;
 }
 
 #newsletter button:hover {
-    background: var(--botoes-interatividade);
-    color: var(--cards-e-texto);
+    background: #9b7a10;
+    color: var(--nav-fundo);
+    border: 1px solid #ebc9a5;
     transition: 0.3s;
-}
-
-footer a {
-    text-align: left;
 }
 
 footer a {
     color: var(--cards-e-texto);
     margin: 0 10px;
     text-decoration: none;
+    text-align: left;
 }
 
 footer a:hover {
     text-decoration: underline;
-    color: var(--botoes-interatividade);
+    color: var(--nav-fundo);
 }
 
 .fa-brands {
@@ -543,9 +566,16 @@ footer a:hover {
     font-size: 24px;
 }
 
-.fa-brands:hover {
-    color: var(--botoes-interatividade);
+.fa-solid, .fas, .fa-regular {
+    font-weight: 900;
+    color: #ebc9a5;
+}
+
+.fa-brands:hover, .fa-regular:hover {
+    color: var(--cards-e-texto);
     transition: 0.3s;
+    transform: translateY(-5px);
+    box-shadow: 0 7px 35px #ffffff;
 }
 
 footer p {
@@ -554,12 +584,11 @@ footer p {
     left: 20px;
     bottom: 10px;
     font-size: 14px;
-
 }
 
 button {
-    background: var(--botoes-interatividade);
-    color: var(--cards-e-texto);
+    background: var(--cards-e-texto);
+    color: var(--fundo-principal);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -568,13 +597,13 @@ button {
 }
 
 button:hover {
-    background: var(--botoes-interatividade);
+    background: var(--fundo-principal);
     color: var(--cards-e-texto);
     transition: 0.3s;
 }
 
 a {
-    color: #f4f4f4;
+    text-decoration: none;
 }
 
 /* <!-- AJUSTAR RESPONSIVIDADE -->
