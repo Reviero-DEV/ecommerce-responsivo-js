@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     margin: 40px auto;
-    background-color: rgba(255, 255, 255, 0.247);
+    background: rgba(210, 224, 238, 0.486);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     width: 800px;
@@ -28,14 +28,14 @@
 
 .cart-item {
     display: flex;
-    background: rgba(210, 224, 238, 0.486);
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
     margin: 5px 0;
     padding: 10px;
     justify-items: center;
     justify-content: space-around;
 }
 
-/* CONFIGURAR VALOR PARA SE AJUSTAR NO LI */
 .cart-item span {
     display: flex;
     padding: 5px;
@@ -119,7 +119,6 @@ form {
     flex: 1 1 calc(33% - 40px);
 }
 
-/* DEIXAR OS PRODUTOS RECOMENDADOS EM LINHA EM MODO DE ROLAGEM */
 .recomends {
     display: flex;
     flex-direction: column;
@@ -145,7 +144,6 @@ form {
 .product-recomended .card {
     display: flex;
     flex-direction: column;
-    background: var(--cards-e-texto);
     border-radius: 5px;
     margin: 30px 15px;
     padding: 10px;
