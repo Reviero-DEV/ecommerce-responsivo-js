@@ -405,9 +405,9 @@ main {
 }
 
 .card button {
-    background: var(--cards-e-texto);
+    background: #ebc9a514;
     color: var(--fundo-principal);
-    border: none;
+    border: 1px solid #ebc393;
     padding: 10px;
     cursor: pointer;
     margin: 10px auto 0 auto;
