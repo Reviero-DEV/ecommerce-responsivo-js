@@ -191,7 +191,6 @@ main {
 
 .hero-content small {
     font-size: 18px;
-    margin-bottom: 20px;
     display: block;
     font-weight: bolder;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -215,12 +214,9 @@ main {
 .hero-img img {
     position: absolute;
     display: block;
-    background: transparent;
-    top: 2px;
+    top: 15px;
     right: 2%;
-    width: 200px;
-    overflow: hidden;
-    max-width: 250px;
+    width: clamp(50px, 30%, 200px);
     filter: drop-shadow(0 25px rgba(0, 0, 0, 0.25));
     transition: transform 0.4s ease;
     background: none;
@@ -242,8 +238,9 @@ main {
 
 .category-nav ul {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .category-nav li {
@@ -293,6 +290,13 @@ main {
     gap: 5px;
     max-height: max-content;
     max-width: 90%;
+}
+
+.product-bestSellers {
+    display: flex;
+    overflow-x: scroll;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -472,9 +476,9 @@ footer {
     color: var(--cards-e-texto);
     text-align: center;
     padding: 40px;
-    position: relative;
+    position: sticky;
     width: 100%;
-    bottom: 0;
+    top: 100%;
     overflow: hidden;
 }
 
