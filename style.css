@@ -359,19 +359,18 @@ main {
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 104px 50px auto;
     background: #ffffff;
     border-radius: 10px;
     margin: 10px 15px;
     border: 1px solid #EBC9A5;
-    padding: 10px;
+    padding: 10px 24px;
     box-shadow: 0 4px 10px rgb(0 0 0 / 50%);
     text-align: center;
-    width: 200px;
+    flex: 0 0 250px;
+    flex-shrink: 0;
     transition: 0.3s ease;
-    font-size: smaller;
-    overflow: hidden;
 }
 
 .card:hover {
@@ -380,25 +379,23 @@ main {
 }
 
 .card img {
-    max-width: 100px;
-    height: 100px;
+    max-width: 140px;
+    max-height: 83px;
     margin: auto;
 }
 
 .card h3 {
-    margin-bottom: 5px;
     font-size: 16px;
 }
 
 .card p {
     font-size: 14px;
     margin-bottom: 10px;
-    flex: 1 1 calc(100% - 10px);
     overflow: hidden;
 }
 
 .card span {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: rgb(0, 0, 0);
     letter-spacing: 2px;
