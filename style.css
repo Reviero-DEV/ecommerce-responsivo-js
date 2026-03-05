@@ -602,11 +602,38 @@ button:hover {
     transition: 0.3s;
 }
 
-a {
-    text-decoration: none;
+
+
+@supports (scrollbar-width: thin) {
+
+    .category-nav ul,
+    .product-bestSellers {
+        scrollbar-width: none;
+        scrollbar-color: transparent transparent;
+        padding-bottom: 13px;
 }
 
-/* <!-- AJUSTAR RESPONSIVIDADE -->
-A IMAGEM DO HERO TEM QUE DIMINUIR O TAMANHO E O HERO-CONTENT TEM QUE SER AJUSTADOS PARA ESQUERDA EM TELAS MENORES QUE 760PX COM FELX
-O category-nav TEM QUE ADICIONAR ROLAGEM PARA TELAS MENORES QUE 922PX
-FOOTER SO ESTA BEM ACIMA DE 1180PX */
+    .category-nav ul:hover,
+    .product-bestSellers:hover {
+        scrollbar-width: thin;
+        scrollbar-color: #4b5563 transparent;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .hero-content {
+        margin: 10%;
+    }
+
+    .hero-content p {
+        font-size: 20px;
+    }
+
+    .hero-content small {
+        font-size: 15px;
+    }
+
+    .hero-content button {
+        font-size: 1rem;
+    }
+}

@@ -127,7 +127,7 @@ form {
     margin: 20px 0;
     padding: 0;
     margin-bottom: 30px;
-    width: 100%;
+    width: 90%;
     height: auto;
     gap: 10px;
 
@@ -154,9 +154,16 @@ form {
     flex: 1 1 calc(33% - 40px);
 }
 
+@supports (scrollbar-width: thin) {
 
-footer {
-    position: relative;
-    height: auto;
+    .product-recomended {
+        scrollbar-width: none;
+        scrollbar-color: transparent transparent;
+        padding-bottom: 15px;
+    }
 
+    .product-recomended:hover {
+        scrollbar-width: thin;
+        scrollbar-color: #4b5563 transparent;
+    }
 }
