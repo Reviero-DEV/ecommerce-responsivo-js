@@ -1,5 +1,5 @@
 const productsContainer = document.getElementById('cards');
-const navBestSellers = document.querySelector('.best-sellers');
+const navBestSellers = document.querySelector('.product-bestSellers');
 const exploreBtn = document.getElementById('moreProducts');
 const navCategories = document.querySelector('.category-nav');
 const cartCount = document.getElementById('cart-count');
@@ -7,7 +7,6 @@ const inputSearch = document.getElementById('input-search');
 const btnSearch = document.getElementById('btn-search');
 
 
-// DOM DO CART
 const listCart = document.querySelector(".cart-list");
 const priceTotal = document.getElementById("price-total");
 const checkoutButton = document.querySelector(".checkout-button");
@@ -207,15 +206,11 @@ function atualizarUI() {
   if (!renderProducts) {
     console.log('render nao encontrado');
   };
-  // console.log('atualizar ui disparado');
   renderProducts(products);
-  // console.log('renderProducts chamado');
   filterProducts();
-  // console.log('filterProducts chamado');
   atualizarCartUI();
 }
 
-// FUNCOES DO CART
 let cart = [];
 
 const CART_KEY = 'movimentacaoDoCarrinho';
@@ -269,7 +264,6 @@ function cartPanel() {
     listCart.style.display = 'block';
     messageCart.style.display = 'none';
 
-    // AGRUPAR PRODUTOS POR ID E QTY
     const productCountMap = {};
     cart.forEach(product => {
       if (productCountMap[product.id]) {
@@ -313,7 +307,6 @@ function cartPanel() {
       listCart.appendChild(cartProduct);
     });
 
-    // Atualizar total do carrinho
     updateCartTotal();
     cartResume.forEach(el => el.style.display = 'block');
   } else {
@@ -477,14 +470,14 @@ inputSearch.addEventListener('input', (e) => {
   renderProducts(filtered);
 
 });
-// ABRIR OU FECHAR INPUT
+
 btnSearch.addEventListener('click', (e) => {
   e.stopPropagation();
   inputSearch.classList.toggle('hidden');
 
   inputSearch.value = '';
 });
-// FECHAR INPUT AO CLICAR FORA
+
 document.addEventListener('click', (e) => {
   if (
     !inputSearch.classList.contains('hidden') &&
